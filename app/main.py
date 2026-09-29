@@ -1,9 +1,13 @@
+import logging
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
 from app.api import sources
 from app.db.sqlite import init_db
+
+# uvicorn only configures its own loggers; without this, our logger.info(...) calls are silently dropped
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
 
 @asynccontextmanager

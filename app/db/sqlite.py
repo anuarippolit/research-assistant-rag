@@ -14,6 +14,7 @@ def init_db() -> None:
                 filename TEXT,
                 file_type TEXT,
                 status TEXT,
+                error TEXT,
                 created_at TEXT
             )
         """)
@@ -24,3 +25,11 @@ def insert_source(source_id: str, filename: str, file_type: str, status: str, cr
             INSERT INTO sources (id, filename, file_type, status, created_at)
             VALUES (?, ?, ?, ?, ?)
         """, (source_id, filename, file_type, status, created_at))
+
+
+def update_source_status(source_id: str, status: str, error: str | None = None) -> None:
+    with sqlite3.connect(DB_PATH) as connection:
+        connection.execute(
+            "UPDATE sources SET status = ?, error = ? WHERE id = ?",
+            (status, error, source_id),
+        )
