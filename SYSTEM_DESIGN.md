@@ -1,6 +1,6 @@
 # System Design: AI Research Assistant (RAG)
 
-Self-hosted research assistant: upload sources (PDFs, presentations), then
+Self-hosted research assistant: upload sources (PDFs), then
 query, summarize, or extract structured data across them.
 
 **Goal:** learning project + portfolio piece. Not a SaaS — single-tenant,
@@ -38,7 +38,6 @@ Explicitly **out of scope for v1** (documented as future work, not built):
 | Vector DB | Qdrant (separate Docker service) | Real vector-DB-as-a-service, good filtering support |
 | Metadata storage | SQLite | File-based, no extra container, fine for single-tenant |
 | PDF parsing | PyMuPDF (`fitz`) | Handles text extraction + can render pages as images (fallback for tables/scans) |
-| Presentation parsing | `python-pptx` | Slide text extraction |
 | Background jobs | FastAPI `BackgroundTasks` | Good enough for v1; note Celery+Redis as a scaling upgrade |
 | Deployment | Docker Compose (`app` + `qdrant`), `.env` for API key | One command to run |
 
@@ -53,7 +52,7 @@ Explicitly **out of scope for v1** (documented as future work, not built):
 |---|---|---|
 | id | str | source_id |
 | filename | str | |
-| file_type | str | pdf / pptx |
+| file_type | str | pdf |
 | status | str | pending / processing / ready / failed |
 | created_at | datetime | |
 
@@ -92,7 +91,7 @@ Each point = one chunk of text.
 1. `POST /sources` receives file → row created in `sources` (`status=pending`)
    → respond immediately, don't make the client wait
 2. Background task runs:
-   - **Parse** — extract raw text (PyMuPDF / python-pptx), per page/slide
+   - **Parse** — extract raw text (PyMuPDF), per page
    - **Chunk** — split into ~500–800 token pieces, ~100 token overlap
    - **Embed** — run each chunk through the local embedding model
    - **Upsert** — write vector + payload into Qdrant, one point per chunk
