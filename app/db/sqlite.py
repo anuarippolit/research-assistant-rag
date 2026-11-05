@@ -33,3 +33,25 @@ def update_source_status(source_id: str, status: str, error: str | None = None) 
             "UPDATE sources SET status = ?, error = ? WHERE id = ?",
             (status, error, source_id),
         )
+# No input, output is list of dicts with keys: id, filename, file_type, status, error, created_at
+# 1. Connect to sql lite  using DB_PATH 
+# 2. use connection.row_factory = sqlite3.Row to get rows as dicts, without sqlite3.Row, the rows will be tuples and we will have to manually convert them to dicts with column names 
+# 3. Execute the query "SELECT * FROM sources" to get all rows from the sources table
+def list_sources() -> list[dict]:
+    with sqlite3.connect(DB_PATH) as connection:
+        connection.row_factory = sqlite3.Row
+        rows = connection.execute("SELECT * FROM sources ORDER BY created_at DESC").fetchall()
+        return [dict(row) for row in rows]
+
+def get_source(source_id: str) -> dict | None:
+    with sqlite3.connect(DB_PATH) as connection:
+        connection.row_factory = sqlite3.Row
+        row = connection.execute("SELECT * FROM sources WHERE id = ?", (source_id,)).fetchone()
+        return dict(row) if row else None
+
+def delete_source(source_id: str) -> bool:
+    with sqlite3.connect(DB_PATH) as connection:
+        cursor = connection.execute("DELETE FROM sources WHERE id = ?", (source_id,))
+        return cursor.rowcount > 0
+
+    

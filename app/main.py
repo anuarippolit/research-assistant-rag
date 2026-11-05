@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from app.api import sources
+from app.api import sources, chat
 from app.core.embeddings import get_model
 from app.db.sqlite import init_db
 from app.db.vector_store import ensure_collection
@@ -23,6 +23,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Research Assistant RAG", lifespan=lifespan)
 app.include_router(sources.router)
+app.include_router(chat.router)
 
 
 @app.get("/")

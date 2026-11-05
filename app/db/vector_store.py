@@ -2,12 +2,12 @@ import uuid
 from functools import lru_cache
 
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
-
+from qdrant_client.models import Distance, FilterSelector, PointStruct, VectorParams, Filter, MatchValue, FieldCondition, MatchAny
 from app.core.embeddings import EMBEDDING_DIM
+from app.config import settings
 
-QDRANT_URL = "http://localhost:6333"
-COLLECTION = "chunks"
+QDRANT_URL = settings.qdrant_url
+COLLECTION = settings.collection
 
 
 @lru_cache(maxsize=1)
@@ -44,3 +44,22 @@ def upsert_chunks(source_id: str, filename: str, chunks: list[dict], vectors: li
         for chunk, vector in zip(chunks, vectors, strict=True)  # strict: lengths must match
     ]
     get_client().upsert(collection_name=COLLECTION, points=points)
+
+# Delete all points in vector db with that source id
+# 1. use get client to get qdrant client
+# 2. use client.delete to delete points from collection COLLECTION
+# 3. in delete, indicate collection name and what points to delete
+# 4. Use FilterSelector to select points to delete, with a Filter that has a must condition that the key "source_id" matches the value of source_id
+def delete_source_chunks(source_id:str) -> None:
+    get_client().delete(
+        collection_name=COLLECTION,
+        points_selector=FilterSelector(filter=Filter(must=[FieldCondition(key="source_id", match=MatchValue(value=source_id))]))
+    )
+
+def search_chunks(query_vector: list[float], k: int=5, source_ids: list[str] | None = None) -> list[dict]:
+    if source_ids == []: 
+        return []
+    q_filter = Filter(must=[FieldCondition(key="source_id", match=MatchAny(any=source_ids))]) if source_ids else None
+    results = get_client().query_points(collection_name=COLLECTION, query=query_vector, limit=k, query_filter=q_filter, with_payload=True)
+    return [{**p.payload, "score": p.score} for p in results.points]
+
