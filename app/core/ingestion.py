@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-from app.core.chunking import chunk_pages
+from app.core.chunking import chunk_pages, drop_build_steps
 from app.core.embeddings import embed_texts
 from app.core.parsing import parse_pdf
 from app.db.sqlite import update_source_status
@@ -11,12 +11,14 @@ logger = logging.getLogger(__name__)
 
 
 def ingest_source(source_id: str, filename: str, file_path: Path) -> None:
-    """Full pipeline for one uploaded file: parse -> chunk -> embed -> upsert.
-    Runs in the background, so it never raises: the outcome goes to sources.status.
-    """
+    # Full pipeline --- parse -> chunk -> embed -> upsert
+    # Runs in the background, so it never raises: the outcome goes to sources.status.
+
     update_source_status(source_id, "processing")
     try:
         pages = parse_pdf(file_path)
+        total_pages = len(pages)
+        pages = drop_build_steps(pages)
         chunks = chunk_pages(pages)
         if not chunks:
             raise ValueError("No extractable text (scanned/image-only PDF? OCR is not supported)")
@@ -25,7 +27,10 @@ def ingest_source(source_id: str, filename: str, file_path: Path) -> None:
         upsert_chunks(source_id, filename, chunks, vectors)
 
         update_source_status(source_id, "ready")
-        logger.info("Ingested %s: %d pages, %d chunks", filename, len(pages), len(chunks))
+        logger.info(
+            "Ingested %s: %d pages (%d build steps dropped), %d chunks",
+            filename, len(pages), total_pages - len(pages), len(chunks),
+        )
     except Exception as e:
         # nobody is waiting for this function's result, so record the error instead of raising
         logger.exception("Ingestion failed for %s", filename)
