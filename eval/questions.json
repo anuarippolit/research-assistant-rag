@@ -1,0 +1,280 @@
+[
+  {
+    "id": "q01",
+    "question": "What are the four core components of supervised learning?",
+    "answerable": true,
+    "type": "list",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[5, 5], [87, 92]]}]
+  },
+  {
+    "id": "q02",
+    "question": "How does cross-validation work and what is it used for?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[19, 31]]}]
+  },
+  {
+    "id": "q03",
+    "question": "Why is the nearest centroid classifier memory-efficient for large data sets?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[36, 36]]}]
+  },
+  {
+    "id": "q04",
+    "question": "Why is the nearest centroid classifier a linear classifier?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[46, 53]]}]
+  },
+  {
+    "id": "q05",
+    "question": "What is the weight update rule of the perceptron learning algorithm?",
+    "answerable": true,
+    "type": "formula",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[70, 72]]}]
+  },
+  {
+    "id": "q06",
+    "question": "How can a binary perceptron be used to recognize ten handwritten digits?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[79, 83]]}]
+  },
+  {
+    "id": "q07",
+    "question": "Why is logistic regression a classification method even though it has regression in its name?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[9, 14]]}]
+  },
+  {
+    "id": "q08",
+    "question": "What is the negative log-likelihood that binary logistic regression minimizes?",
+    "answerable": true,
+    "type": "formula",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[22, 22], [91, 92]]}]
+  },
+  {
+    "id": "q09",
+    "question": "How does the softmax function define class probabilities in multiclass logistic regression?",
+    "answerable": true,
+    "type": "formula",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[41, 42]]}]
+  },
+  {
+    "id": "q10",
+    "question": "Why is the logistic regression loss function convex?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[90, 90], [98, 98]]}]
+  },
+  {
+    "id": "q11",
+    "question": "What happens in gradient descent if the fixed step size is too small or too large?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[101, 101], [112, 112]]}]
+  },
+  {
+    "id": "q12",
+    "question": "What are the advantages of stochastic gradient descent compared to batch gradient descent?",
+    "answerable": true,
+    "type": "list",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[108, 110]]}]
+  },
+  {
+    "id": "q13",
+    "question": "How does a multilayer perceptron overcome the limitations of a single perceptron?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[11, 16]]}]
+  },
+  {
+    "id": "q14",
+    "question": "What does the universal approximation theorem state?",
+    "answerable": true,
+    "type": "definition",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[19, 19]]}]
+  },
+  {
+    "id": "q15",
+    "question": "How is the error propagated to hidden units in backpropagation?",
+    "answerable": true,
+    "type": "formula",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[32, 35], [38, 38]]}]
+  },
+  {
+    "id": "q16",
+    "question": "What is the vanishing gradient problem and how does ReLU help?",
+    "answerable": true,
+    "type": "explanation",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[47, 47]]}]
+  },
+  {
+    "id": "q17",
+    "question": "What are the solutions to exploding gradients?",
+    "answerable": true,
+    "type": "list",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[49, 49]]}]
+  },
+  {
+    "id": "q18",
+    "question": "What is Xavier initialization?",
+    "answerable": true,
+    "type": "definition",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[50, 50]]}]
+  },
+  {
+    "id": "q19",
+    "question": "How are the perceptron and logistic regression similar and how do they differ?",
+    "answerable": true,
+    "type": "multi_source",
+    "expected": [
+      {"file": "4_LogisticRegression.pdf", "pages": [[33, 35]]},
+      {"file": "5_MLP.pdf", "pages": [[9, 10]]}
+    ]
+  },
+  {
+    "id": "q20",
+    "question": "Why is the error function of a multilayer perceptron non-convex while the logistic regression loss is convex?",
+    "answerable": true,
+    "type": "multi_source",
+    "expected": [
+      {"file": "5_MLP.pdf", "pages": [[52, 52]]},
+      {"file": "4_LogisticRegression.pdf", "pages": [[98, 98], [112, 112]]}
+    ]
+  },
+  {
+    "id": "q21",
+    "question": "How does the attention mechanism in transformers work?",
+    "answerable": false,
+    "type": "unanswerable",
+    "expected": []
+  },
+  {
+    "id": "q22",
+    "question": "How does a convolutional layer with pooling process an image?",
+    "answerable": false,
+    "type": "hard_negative",
+    "expected": []
+  },
+  {
+    "id": "q23",
+    "question": "What is the Adam optimizer and how does it differ from plain SGD?",
+    "answerable": false,
+    "type": "hard_negative",
+    "expected": []
+  },
+  {
+    "id": "q24",
+    "question": "What is dropout and how does it prevent overfitting?",
+    "answerable": false,
+    "type": "hard_negative",
+    "expected": []
+  },
+  {
+    "id": "q25",
+    "question": "Who won the football world cup in 2018?",
+    "answerable": false,
+    "type": "unanswerable",
+    "expected": []
+  },
+  {
+    "id": "q26",
+    "question": "My training error is tiny but my test error is large. What is going on?",
+    "answerable": true,
+    "type": "paraphrase",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[13, 16]]}]
+  },
+  {
+    "id": "q27",
+    "question": "Which activation function replaced the sigmoid as the default choice, and why?",
+    "answerable": true,
+    "type": "paraphrase",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[47, 47]]}]
+  },
+  {
+    "id": "q28",
+    "question": "How many parameters does logistic regression need?",
+    "answerable": true,
+    "type": "needle",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[56, 56]]}]
+  },
+  {
+    "id": "q29",
+    "question": "How should the SGD step size decrease over iterations and what range of the exponent is allowed?",
+    "answerable": true,
+    "type": "needle",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[111, 111]]}]
+  },
+  {
+    "id": "q30",
+    "question": "In which year was error backpropagation published and by whom?",
+    "answerable": true,
+    "type": "needle",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[8, 8]]}]
+  },
+  {
+    "id": "q31",
+    "question": "How is the offset term absorbed into the weight vector in the linear classification rule?",
+    "answerable": true,
+    "type": "paraphrase",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[51, 53]]}]
+  },
+  {
+    "id": "q32",
+    "question": "In the two-class softmax model, why do many different weight vectors give the same predictions?",
+    "answerable": true,
+    "type": "paraphrase",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[43, 44]]}]
+  },
+  {
+    "id": "q33",
+    "question": "How does the stochastic gradient descent update differ from the full gradient descent update?",
+    "answerable": true,
+    "type": "multi_source",
+    "expected": [
+      {"file": "3_Core_NCC_PERC.pdf", "pages": [[58, 59]]},
+      {"file": "4_LogisticRegression.pdf", "pages": [[110, 110]]}
+    ]
+  },
+  {
+    "id": "q34",
+    "question": "In the backpropagation example, which loss and which hidden activation function are used?",
+    "answerable": true,
+    "type": "needle",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[36, 36]]}]
+  },
+  {
+    "id": "q35",
+    "question": "What problems does the perceptron algorithm have, and how can its limitation on non-separable data be overcome?",
+    "answerable": true,
+    "type": "multi_source",
+    "expected": [
+      {"file": "3_Core_NCC_PERC.pdf", "pages": [[85, 85]]},
+      {"file": "5_MLP.pdf", "pages": [[11, 12]]}
+    ]
+  },
+  {
+    "id": "q36",
+    "question": "What is the kernel trick in support vector machines?",
+    "answerable": false,
+    "type": "hard_negative",
+    "expected": []
+  },
+  {
+    "id": "q37",
+    "question": "How does L1 regularization in the lasso produce sparse weights?",
+    "answerable": false,
+    "type": "hard_negative",
+    "expected": []
+  },
+  {
+    "id": "q38",
+    "question": "What learning rate was used in the handwritten digit recognition experiment?",
+    "answerable": false,
+    "type": "hard_negative",
+    "expected": []
+  }
+]
