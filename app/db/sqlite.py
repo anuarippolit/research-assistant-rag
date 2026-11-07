@@ -39,9 +39,9 @@ def update_source_status(source_id: str, status: str, error: str | None = None) 
 # 3. Execute the query "SELECT * FROM sources" to get all rows from the sources table
 def list_sources() -> list[dict]:
     with sqlite3.connect(DB_PATH) as connection:
-        connection.row_factory = sqlite3.Row
-        rows = connection.execute("SELECT * FROM sources ORDER BY created_at DESC").fetchall()
-        return [dict(row) for row in rows]
+        connection.row_factory = sqlite3.Row # every row is type Row, which is like dict
+        rows = connection.execute("SELECT * FROM sources ORDER BY created_at DESC").fetchall() # rows is list of Row objects
+        return [dict(row) for row in rows] # convert each Row into dict, and return list of dict
 
 def get_source(source_id: str) -> dict | None:
     with sqlite3.connect(DB_PATH) as connection:

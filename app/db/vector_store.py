@@ -16,7 +16,7 @@ def get_client() -> QdrantClient:
 
 
 def ensure_collection() -> None:
-    """Create the collection once. Size must match the embedding model's vector size."""
+    # reate the collection once. Size must match the embedding model's vector size.
     client = get_client()
     if not client.collection_exists(COLLECTION):
         client.create_collection(
@@ -26,7 +26,7 @@ def ensure_collection() -> None:
 
 
 def upsert_chunks(source_id: str, filename: str, chunks: list[dict], vectors: list[list[float]]) -> None:
-    """Write one point per chunk: id + vector + payload (metadata for citations and filters)."""
+    # Write one point per chunk: id + vector + payload (metadata for citations and filters).
     points = [
         PointStruct(
             # Qdrant ids must be int or UUID -> deterministic UUID from (source, chunk):

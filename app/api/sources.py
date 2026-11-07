@@ -12,7 +12,8 @@ router = APIRouter()
 
 UPLOAD_DIR = BASE_DIR / "data" / "uploads"
 
-
+# background tasks for ingesting sources in vector db - client will not wait it, he will get response with status pending, while in background the ingestion task will be completed
+# UploadFile = File(...) is used that file param is waited as File Upload inside the File with (...) as requiered params
 @router.post("/sources")
 async def upload_source(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
     source_id = str(uuid.uuid4())
