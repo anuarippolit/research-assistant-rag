@@ -10,6 +10,22 @@ Rules:
 5. Answer in the same language as the question. Be concise."""
 
 
+VISION_SYSTEM_PROMPT = """You describe one lecture slide so that it can be found by a text search.
+You get the slide as an image, plus the text extracted from the PDF (it may be garbled, especially formulas).
+
+Write a plain-text description, no markdown headers, under 200 words:
+1. The topic in one plain sentence about the subject itself (e.g. "Perceptron decision rule for two classes"). Never start with "The slide" or "This slide".
+2. Every formula, rewritten readably in plain text or LaTeX, with one short phrase saying what it means.
+3. Every diagram, plot or picture: what it shows, including axis labels, legends and visible numbers.
+   Name symbols and markers both as written and by their shape, e.g. "o" (circle), "Δ" (triangle).
+Describe only what is visible. Do not explain beyond the slide and do not invent content.
+Skip the repeated header/footer (section names, slide numbers)."""
+
+
+def build_vision_prompt(page_text: str) -> str:
+    return f"<extracted_text>\n{page_text}\n</extracted_text>\n\nDescribe this slide."
+
+
 def build_chat_prompt(question: str, chunks: list[dict]) -> tuple[str, str]:
     # returns system, user tuple for ask_claude function
     blocks = [f"[{c['filename']}, p. {c['page']}]\n{c['text']}" for c in chunks]
