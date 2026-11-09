@@ -88,7 +88,7 @@
     "question": "How does a multilayer perceptron overcome the limitations of a single perceptron?",
     "answerable": true,
     "type": "explanation",
-    "expected": [{"file": "5_MLP.pdf", "pages": [[11, 16]]}]
+    "expected": [{"file": "5_MLP.pdf", "pages": [[7, 7], [11, 16], [19, 19], [52, 52]]}]
   },
   {
     "id": "q14",
@@ -276,5 +276,47 @@
     "answerable": false,
     "type": "hard_negative",
     "expected": []
+  },
+  {
+    "id": "q39",
+    "question": "What do the class centroids of the USPS handwritten digit data set look like?",
+    "answerable": true,
+    "type": "visual",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[44, 44]]}]
+  },
+  {
+    "id": "q40",
+    "question": "Which polynomial degrees are compared when fitting noisy samples of the sine function, and what happens with the highest degree?",
+    "answerable": true,
+    "type": "visual",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[8, 11]]}]
+  },
+  {
+    "id": "q41",
+    "question": "What did the original Rosenblatt perceptron hardware look like?",
+    "answerable": true,
+    "type": "visual",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[63, 63]]}]
+  },
+  {
+    "id": "q42",
+    "question": "How is the target function defined when the network should recognize only the digit 8, and what is the input dimension?",
+    "answerable": true,
+    "type": "visual",
+    "expected": [{"file": "3_Core_NCC_PERC.pdf", "pages": [[76, 76]]}]
+  },
+  {
+    "id": "q43",
+    "question": "What is the output rule of the perceptron for the two classes drawn as circles and triangles?",
+    "answerable": true,
+    "type": "visual",
+    "expected": [{"file": "5_MLP.pdf", "pages": [[9, 10]]}]
+  },
+  {
+    "id": "q44",
+    "question": "How does the convexity slide illustrate a set that is not convex?",
+    "answerable": true,
+    "type": "visual",
+    "expected": [{"file": "4_LogisticRegression.pdf", "pages": [[69, 69]]}]
   }
 ]

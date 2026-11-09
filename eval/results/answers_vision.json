@@ -1,0 +1,1630 @@
+[
+  {
+    "id": "q01",
+    "type": "list",
+    "question": "What are the four core components of supervised learning?",
+    "answerable": true,
+    "answer": "The four core components of supervised learning are:\n\n1. The data that we can learn from. [3_Core_NCC_PERC.pdf, p. 5]\n2. A model of how to transform the data. [3_Core_NCC_PERC.pdf, p. 5]\n3. An objective function that quantifies how well (or badly) the model is doing. [3_Core_NCC_PERC.pdf, p. 5]\n4. An algorithm to adjust the model's parameters to optimize the objective function. [3_Core_NCC_PERC.pdf, p. 5]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 5,
+        "score": 0.8742377
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 97,
+        "score": 0.74176013
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 3,
+        "score": 0.7196239
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 66,
+        "score": 0.69200116
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 54,
+        "score": 0.68425876
+      }
+    ]
+  },
+  {
+    "id": "q02",
+    "type": "explanation",
+    "question": "How does cross-validation work and what is it used for?",
+    "answerable": true,
+    "answer": "Cross-validation works by training a model on part of the data, testing it on the remaining part, repeating this on different cross-validation folds, and averaging the test performance across all folds [3_Core_NCC_PERC.pdf, p. 26].\n\nIt can be used for two purposes:\n- **Model evaluation:** testing how good an algorithm actually is, by reporting the mean evaluation score (e.g., accuracy) across folds [3_Core_NCC_PERC.pdf, p. 26; p. 27].\n- **Model selection:** optimizing a model's parameters for generalization performance, by taking the parameter with the highest mean score across folds [3_Core_NCC_PERC.pdf, p. 26; p. 27].\n\nBoth can be combined through nested cross-validation [3_Core_NCC_PERC.pdf, p. 27].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 26,
+        "score": 0.8184398
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 26,
+        "score": 0.76204026
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 27,
+        "score": 0.7572297
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 31,
+        "score": 0.73792005
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 32,
+        "score": 0.7278205
+      }
+    ]
+  },
+  {
+    "id": "q03",
+    "type": "explanation",
+    "question": "Why is the nearest centroid classifier memory-efficient for large data sets?",
+    "answerable": true,
+    "answer": "The nearest centroid classifier is memory-efficient for large data sets because only the centroids need to be stored, and data points can be deleted after the updates. Centroids can also be estimated iteratively from data streams. [3_Core_NCC_PERC.pdf, p. 36]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 36,
+        "score": 0.88647485
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 42,
+        "score": 0.82273227
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 35,
+        "score": 0.80676454
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 41,
+        "score": 0.8038966
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 43,
+        "score": 0.79724824
+      }
+    ]
+  },
+  {
+    "id": "q04",
+    "type": "explanation",
+    "question": "Why is the nearest centroid classifier a linear classifier?",
+    "answerable": true,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 42,
+        "score": 0.8174542
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 35,
+        "score": 0.80926996
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 36,
+        "score": 0.80749214
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 43,
+        "score": 0.80447257
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 41,
+        "score": 0.79106796
+      }
+    ]
+  },
+  {
+    "id": "q05",
+    "type": "formula",
+    "question": "What is the weight update rule of the perceptron learning algorithm?",
+    "answerable": true,
+    "answer": "The weight update rule is w ← w + (η/it) x_i y_i, applied only when the randomly picked example x_i is misclassified (sign(wᵀx_i) ≠ y_i) [3_Core_NCC_PERC.pdf, p. 72].\n\nEquivalently, the stochastic gradient descent form used for the perceptron is w_new = w_old + η x_m y_m, applied to a randomly chosen misclassified point x_m [3_Core_NCC_PERC.pdf, p. 70].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 72,
+        "score": 0.8358729
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 71,
+        "score": 0.8280944
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 40,
+        "score": 0.80326295
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 70,
+        "score": 0.8017938
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 66,
+        "score": 0.79379034
+      }
+    ]
+  },
+  {
+    "id": "q06",
+    "type": "explanation",
+    "question": "How can a binary perceptron be used to recognize ten handwritten digits?",
+    "answerable": true,
+    "answer": "The perceptron is a two-class (binary) classifier, so for ten digits the problem must be binarized. The approach is to train one perceptron per digit against all the others, concatenate the ten weight vectors into W = [w0, w1, ..., w9], and for a new data point x compute the label as argmax(WᵀX), i.e. the digit whose perceptron gives the highest score [3_Core_NCC_PERC.pdf, p. 83].\n\nEach digit image is a 16×16 pixel image, so the input x has 256 dimensions [3_Core_NCC_PERC.pdf, p. 76]. The training of a single-digit perceptron (for example, digit 8 against the rest, with labels +1 and −1) is described in [3_Core_NCC_PERC.pdf, p. 76] and [3_Core_NCC_PERC.pdf, p. 66].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 83,
+        "score": 0.8348025
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 76,
+        "score": 0.79506606
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 77,
+        "score": 0.7862587
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 66,
+        "score": 0.7627982
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 10,
+        "score": 0.74600077
+      }
+    ]
+  },
+  {
+    "id": "q07",
+    "type": "explanation",
+    "question": "Why is logistic regression a classification method even though it has regression in its name?",
+    "answerable": true,
+    "answer": "Logistic regression is for classification, not regression. The source states that \"Logistic Regression is not for regression – it's for classification\" and that \"the goal is to model p(y|x) directly\" [4_LogisticRegression.pdf, p. 14].\n\nIt does this by producing probabilistic outputs, with 0 < p(y|x) < 1 and probabilities over the classes summing to one [4_LogisticRegression.pdf, p. 16]. For binary labels y ∈ {−1, +1}, p(y|x) is modeled as a Bernoulli distribution [4_LogisticRegression.pdf, p. 14].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 16,
+        "score": 0.765339
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 14,
+        "score": 0.76381356
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 21,
+        "score": 0.7445631
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 112,
+        "score": 0.74384916
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 42,
+        "score": 0.7341522
+      }
+    ]
+  },
+  {
+    "id": "q08",
+    "type": "formula",
+    "question": "What is the negative log-likelihood that binary logistic regression minimizes?",
+    "answerable": true,
+    "answer": "Binary logistic regression minimizes the negative log-likelihood log(1 + e^(−y wᵀx)), where y ∈ {−1, +1}, w is the weight vector and x is the input. [4_LogisticRegression.pdf, p. 22]; [4_LogisticRegression.pdf, p. 91]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 22,
+        "score": 0.8924459
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 91,
+        "score": 0.839134
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 23,
+        "score": 0.8373058
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 45,
+        "score": 0.82506
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 30,
+        "score": 0.8236916
+      }
+    ]
+  },
+  {
+    "id": "q09",
+    "type": "formula",
+    "question": "How does the softmax function define class probabilities in multiclass logistic regression?",
+    "answerable": true,
+    "answer": "In multiclass logistic regression, with y ∈ {1, 2, ..., K} and W = [w₁, ..., w_K], the probability of class k is the softmax of the class scores: p(y = k | x, W) = L(z_k) = e^(z_k) / Σ_{j=1}^{K} e^(z_j), where z_k = w_kᵀx is a linear function of the input for class k [4_LogisticRegression.pdf, p. 42].\n\nThe likelihood is written as p(y|x) = ∏_{i=1}^{K} L(z_k)^{I(y)}, where I(y) is a one-hot indicator vector that is 1 at the true class and 0 otherwise [4_LogisticRegression.pdf, p. 42].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 42,
+        "score": 0.84659064
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 43,
+        "score": 0.81550455
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 53,
+        "score": 0.8117068
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 44,
+        "score": 0.78945255
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 54,
+        "score": 0.7813288
+      }
+    ]
+  },
+  {
+    "id": "q10",
+    "type": "explanation",
+    "question": "Why is the logistic regression loss function convex?",
+    "answerable": true,
+    "answer": "The logistic regression loss is convex because its Hessian is positive semidefinite: the loss f(x) is convex if v⊤Hv ≥ 0 for all v ≠ 0, and the Hessian H = σ(·)(1 − σ(·)) · xx⊤ gives v⊤xx⊤v > 0, so H is positive (semi)definite [4_LogisticRegression.pdf, p. 98]. The slides note that xx⊤ is the covariance of the data [4_LogisticRegression.pdf, p. 98]. Also, a function is convex if its Hessian is positive definite [4_LogisticRegression.pdf, p. 75], and for convex f, gradient descent will find the global optimum [4_LogisticRegression.pdf, p. 112].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 98,
+        "score": 0.87291026
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 112,
+        "score": 0.81273085
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 60,
+        "score": 0.7738559
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 75,
+        "score": 0.7662746
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 29,
+        "score": 0.76260495
+      }
+    ]
+  },
+  {
+    "id": "q11",
+    "type": "explanation",
+    "question": "What happens in gradient descent if the fixed step size is too small or too large?",
+    "answerable": true,
+    "answer": "If the fixed step size is too small, gradient descent converges slowly [4_LogisticRegression.pdf, p. 101]. If it is too large, the parameters oscillate instead of settling toward the minimum [4_LogisticRegression.pdf, p. 101]. Step size is therefore critical for convergence [4_LogisticRegression.pdf, p. 60; 4_LogisticRegression.pdf, p. 112].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 101,
+        "score": 0.83748543
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 111,
+        "score": 0.77753866
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 60,
+        "score": 0.77687395
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 100,
+        "score": 0.757254
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 112,
+        "score": 0.7369051
+      }
+    ]
+  },
+  {
+    "id": "q12",
+    "type": "list",
+    "question": "What are the advantages of stochastic gradient descent compared to batch gradient descent?",
+    "answerable": true,
+    "answer": "Based on the sources, the advantages of stochastic gradient descent (SGD) over batch gradient descent are:\n\n- **Works online:** SGD works on streams of data rather than fixed data sets [4_LogisticRegression.pdf, p. 110].\n- **Easy to implement:** [4_LogisticRegression.pdf, p. 110].\n- **Efficient in computation and memory:** SGD is efficient in terms of computations and memory requirements, which is especially useful on large-scale data sets [4_LogisticRegression.pdf, p. 110].\n- **Easy to parallelize:** [4_LogisticRegression.pdf, p. 110].\n- **Scales to large data sets:** Only w is stored and one data point x_i and label y_i are considered at a time [3_Core_NCC_PERC.pdf, p. 59].\n\nBatch mode, by contrast, uses all data points to compute the gradient, but not all data sets fit in memory, and batch algorithms are not necessarily faster [4_LogisticRegression.pdf, p. 109].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 110,
+        "score": 0.8184813
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 109,
+        "score": 0.7649794
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 111,
+        "score": 0.76485693
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 113,
+        "score": 0.76326716
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 59,
+        "score": 0.7578135
+      }
+    ]
+  },
+  {
+    "id": "q13",
+    "type": "explanation",
+    "question": "How does a multilayer perceptron overcome the limitations of a single perceptron?",
+    "answerable": true,
+    "answer": "A single perceptron fails on linearly non-separable problems, while a multilayer perceptron can approximate any function [5_MLP.pdf, p. 52]. A multilayer perceptron with one hidden layer and a finite number of hidden units can approximate any function, per Cybenko (1989) [5_MLP.pdf, p. 19]. Training these networks uses error backpropagation, which the slides call the essential innovation [5_MLP.pdf, p. 7; p. 52]. Learning the right function is still difficult, though [5_MLP.pdf, p. 19].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 85,
+        "score": 0.80761695
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 52,
+        "score": 0.7849768
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 7,
+        "score": 0.78451896
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 43,
+        "score": 0.767876
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 19,
+        "score": 0.76171076
+      }
+    ]
+  },
+  {
+    "id": "q14",
+    "type": "definition",
+    "question": "What does the universal approximation theorem state?",
+    "answerable": true,
+    "answer": "A Multi Layer Perceptron with one hidden layer and a finite number of hidden units can approximate any function [5_MLP.pdf, p. 19]. The source adds that learning that function is the hard part [5_MLP.pdf, p. 19].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 19,
+        "score": 0.7080582
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 98,
+        "score": 0.66227865
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 98,
+        "score": 0.64529717
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 98,
+        "score": 0.63896674
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 53,
+        "score": 0.6157446
+      }
+    ]
+  },
+  {
+    "id": "q15",
+    "type": "formula",
+    "question": "How is the error propagated to hidden units in backpropagation?",
+    "answerable": true,
+    "answer": "Error is propagated to a hidden unit j by taking the derivative of its activation function at z_j and multiplying it by the weighted sum of the output errors δ_k from the K output units:\n\nδ_j = h′(z_j) Σ_{k=1}^{K} w_kj^(2) δ_k\n\nHere the output errors are δ_k = ŷ_k − y_k [5_MLP.pdf, p. 38]. The same result is derived by the chain rule, where δ_j = h′(a_j) Σ_k w_kj δ_k, with the error signals flowing backward from downstream units k through the weights w_kj [5_MLP.pdf, p. 35].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 38,
+        "score": 0.80601686
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 37,
+        "score": 0.7902647
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 35,
+        "score": 0.7859563
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 30,
+        "score": 0.77289736
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 38,
+        "score": 0.77067083
+      }
+    ]
+  },
+  {
+    "id": "q16",
+    "type": "explanation",
+    "question": "What is the vanishing gradient problem and how does ReLU help?",
+    "answerable": true,
+    "answer": "The vanishing gradient problem occurs because, when inputs to a sigmoid are very large or very small, the sigmoid's gradient vanishes. For many layers, the gradient goes to zero [5_MLP.pdf, p. 47]. This is tied to the product of many layer-wise matrices in deep networks, whose product can become very small [5_MLP.pdf, p. 46].\n\nReLU helps because its derivative is either 0 or 1, so it avoids the shrinking gradient that sigmoids produce, and it is now the default choice [5_MLP.pdf, p. 47].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 47,
+        "score": 0.84806436
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 47,
+        "score": 0.79999673
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 46,
+        "score": 0.73422897
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 102,
+        "score": 0.69793606
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 101,
+        "score": 0.6974213
+      }
+    ]
+  },
+  {
+    "id": "q17",
+    "type": "list",
+    "question": "What are the solutions to exploding gradients?",
+    "answerable": true,
+    "answer": "The solutions to exploding gradients listed in the sources are:\n\n1. Batch normalization: normalize the layer input within a mini-batch, e.g. by z-scoring [5_MLP.pdf, p. 49]\n2. Fewer layers [5_MLP.pdf, p. 49]\n3. Careful weight initialization [5_MLP.pdf, p. 49]\n4. Gradient clipping: set a maximum value and clip gradients that exceed it [5_MLP.pdf, p. 49]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 49,
+        "score": 0.7418736
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 48,
+        "score": 0.721573
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 46,
+        "score": 0.7000395
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 101,
+        "score": 0.6790838
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 102,
+        "score": 0.67725503
+      }
+    ]
+  },
+  {
+    "id": "q18",
+    "type": "definition",
+    "question": "What is Xavier initialization?",
+    "answerable": true,
+    "answer": "Xavier initialization is the most common weight initialization method: weights are sampled from a Normal (or uniform) distribution with mean 0 and variance 2/(n_in + n_out), where n_in and n_out are the number of input and output connections for a given neuron [5_MLP.pdf, p. 50].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 50,
+        "score": 0.75005645
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 43,
+        "score": 0.6216734
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 83,
+        "score": 0.58915097
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 89,
+        "score": 0.5784801
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 67,
+        "score": 0.57565707
+      }
+    ]
+  },
+  {
+    "id": "q19",
+    "type": "multi_source",
+    "question": "How are the perceptron and logistic regression similar and how do they differ?",
+    "answerable": true,
+    "answer": "Both models compute a non-linear function of a linear combination of features, and the two non-linear functions are very similar [4_LogisticRegression.pdf, p. 35]. The perceptron uses the sign function, y = sign(w⊤x), while logistic regression uses the sigmoid, y = 1 / (1 + e^(−w⊤x)) [4_LogisticRegression.pdf, p. 35]. Replacing the perceptron's activation with the logistic sigmoid makes it very similar to binary logistic regression [5_MLP.pdf, p. 10].\n\nThe key difference is in the outputs: logistic regression has probabilistic outputs, with 0 < p(y|x) < 1 and probabilities over classes summing to one [4_LogisticRegression.pdf, p. 16]. The perceptron is a discriminative method that predicts categories but provides no measure of uncertainty about its predictions [4_LogisticRegression.pdf, p. 8].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 35,
+        "score": 0.79813206
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 10,
+        "score": 0.79404616
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 16,
+        "score": 0.73511094
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 8,
+        "score": 0.73443365
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 98,
+        "score": 0.73250866
+      }
+    ]
+  },
+  {
+    "id": "q20",
+    "type": "multi_source",
+    "question": "Why is the error function of a multilayer perceptron non-convex while the logistic regression loss is convex?",
+    "answerable": true,
+    "answer": "The sources state that the MLP error function is non-convex [5_MLP.pdf, p. 52], but they do not explain why. The sources only say that logistic regression is convex because its Hessian is positive semidefinite: the Hessian is a scaled outer product xxᵀ, so vᵀHv ≥ 0 for all v [4_LogisticRegression.pdf, p. 98]. The sources give no Hessian or other analysis for the MLP error function.",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 98,
+        "score": 0.8041787
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 52,
+        "score": 0.79620534
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 112,
+        "score": 0.78735054
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 55,
+        "score": 0.7867496
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 57,
+        "score": 0.7803234
+      }
+    ]
+  },
+  {
+    "id": "q21",
+    "type": "unanswerable",
+    "question": "How does the attention mechanism in transformers work?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 60,
+        "score": 0.6438252
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 14,
+        "score": 0.6373912
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 17,
+        "score": 0.6359687
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 53,
+        "score": 0.6171118
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 20,
+        "score": 0.61370385
+      }
+    ]
+  },
+  {
+    "id": "q22",
+    "type": "hard_negative",
+    "question": "How does a convolutional layer with pooling process an image?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 46,
+        "score": 0.7114991
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 58,
+        "score": 0.7026422
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 77,
+        "score": 0.6996825
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 49,
+        "score": 0.6989653
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 3,
+        "score": 0.6966461
+      }
+    ]
+  },
+  {
+    "id": "q23",
+    "type": "hard_negative",
+    "question": "What is the Adam optimizer and how does it differ from plain SGD?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 111,
+        "score": 0.6740594
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 110,
+        "score": 0.66174674
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 70,
+        "score": 0.6525011
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 59,
+        "score": 0.64344674
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 112,
+        "score": 0.6387398
+      }
+    ]
+  },
+  {
+    "id": "q24",
+    "type": "hard_negative",
+    "question": "What is dropout and how does it prevent overfitting?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 15,
+        "score": 0.6960685
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 14,
+        "score": 0.6446798
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 16,
+        "score": 0.6048086
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 15,
+        "score": 0.5991286
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 43,
+        "score": 0.5990065
+      }
+    ]
+  },
+  {
+    "id": "q25",
+    "type": "unanswerable",
+    "question": "Who won the football world cup in 2018?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 8,
+        "score": 0.48082817
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 35,
+        "score": 0.44972926
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 38,
+        "score": 0.4480202
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 36,
+        "score": 0.4476748
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 97,
+        "score": 0.446495
+      }
+    ]
+  },
+  {
+    "id": "q26",
+    "type": "paraphrase",
+    "question": "My training error is tiny but my test error is large. What is going on?",
+    "answerable": true,
+    "answer": "Your pattern, a very low training error with a large test error, is the classic sign of overfitting. The sources describe it this way:\n\n- A larger, more complex function class fits the training data better, but despite a low training error, the selected function might not describe the regularity in the data well. It may be overfitted to the noise in the particular training samples. This overfitting becomes apparent in cross-validation when the error on the training data deviates substantially from the error on the test data. [3_Core_NCC_PERC.pdf, p. 14]\n- High variance means error from sensitivity to small fluctuations in the training set, where the model models the random noise in the training data (overfitting). [3_Core_NCC_PERC.pdf, p. 15]\n- Training error is only a proxy for the generalization error, which cannot be computed directly, so a separate test set is used to estimate it. [3_Core_NCC_PERC.pdf, p. 7]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 7,
+        "score": 0.7071399
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 14,
+        "score": 0.69968307
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 15,
+        "score": 0.6766903
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 57,
+        "score": 0.6526445
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 69,
+        "score": 0.64695287
+      }
+    ]
+  },
+  {
+    "id": "q27",
+    "type": "paraphrase",
+    "question": "Which activation function replaced the sigmoid as the default choice, and why?",
+    "answerable": true,
+    "answer": "ReLU replaced the sigmoid as the default choice. The reason given is that when inputs are very large or very small, the sigmoid's gradient vanishes, and for many layers the gradient goes to zero (the vanishing gradient problem), whereas ReLU's derivative is either 0 or 1 [5_MLP.pdf, p. 47].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 47,
+        "score": 0.7536141
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 17,
+        "score": 0.7486058
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 18,
+        "score": 0.7041409
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 10,
+        "score": 0.67895687
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 47,
+        "score": 0.67635846
+      }
+    ]
+  },
+  {
+    "id": "q28",
+    "type": "needle",
+    "question": "How many parameters does logistic regression need?",
+    "answerable": true,
+    "answer": "Logistic regression requires only D + 1 parameters, where D is the input dimension (the extra one is typically the bias term) [4_LogisticRegression.pdf, p. 56].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 56,
+        "score": 0.8642922
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 53,
+        "score": 0.7314068
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 23,
+        "score": 0.7299502
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 29,
+        "score": 0.7298519
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 21,
+        "score": 0.72908634
+      }
+    ]
+  },
+  {
+    "id": "q29",
+    "type": "needle",
+    "question": "How should the SGD step size decrease over iterations and what range of the exponent is allowed?",
+    "answerable": true,
+    "answer": "The step size should decrease with the iteration count t according to η_{t+1} ← η_t / t^α, where the exponent must satisfy 1/2 ≤ α ≤ 1 [4_LogisticRegression.pdf, p. 111].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 111,
+        "score": 0.8219028
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 101,
+        "score": 0.76709723
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 60,
+        "score": 0.736637
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 100,
+        "score": 0.705424
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 99,
+        "score": 0.7012263
+      }
+    ]
+  },
+  {
+    "id": "q30",
+    "type": "needle",
+    "question": "In which year was error backpropagation published and by whom?",
+    "answerable": true,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 35,
+        "score": 0.67114735
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 22,
+        "score": 0.65702313
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 52,
+        "score": 0.6540147
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 29,
+        "score": 0.65223503
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 25,
+        "score": 0.64856505
+      }
+    ]
+  },
+  {
+    "id": "q31",
+    "type": "paraphrase",
+    "question": "How is the offset term absorbed into the weight vector in the linear classification rule?",
+    "answerable": true,
+    "answer": "The offset β is absorbed by augmenting the input and the weight vector: the input becomes x̃ ← [1; x] and the weight vector becomes w̃ ← [−β; w]. This gives w̃ᵀx̃ = wᵀx − β, so the decision rule can be written without a separate offset term [3_Core_NCC_PERC.pdf, p. 53].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 53,
+        "score": 0.7940818
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 72,
+        "score": 0.73544663
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 51,
+        "score": 0.732551
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 54,
+        "score": 0.73095256
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 72,
+        "score": 0.7186439
+      }
+    ]
+  },
+  {
+    "id": "q32",
+    "type": "paraphrase",
+    "question": "In the two-class softmax model, why do many different weight vectors give the same predictions?",
+    "answerable": true,
+    "answer": "The binary case is over-specified, so one weight vector can be fixed (for example, w₂ = 0) without changing the model. This is why the model uses only p(y = 1 | x, W) = 1 / (1 + e^(−w₁ᵀx)) and sets p(y = 2 | x, W) = 1 − p(y = 1 | x, W) [4_LogisticRegression.pdf, p. 44].\n\nThe source does not explicitly explain the full reason that many weight vectors give identical predictions.",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 54,
+        "score": 0.7461146
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 72,
+        "score": 0.7426446
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 44,
+        "score": 0.73550886
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 98,
+        "score": 0.73062897
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 53,
+        "score": 0.7305656
+      }
+    ]
+  },
+  {
+    "id": "q33",
+    "type": "multi_source",
+    "question": "How does the stochastic gradient descent update differ from the full gradient descent update?",
+    "answerable": true,
+    "answer": "Full gradient descent updates the weights using the gradient of the objective, w_new = w_old − η ∂f(w)/∂w [4_LogisticRegression.pdf, p. 99]. Stochastic gradient descent replaces that gradient with a noisy estimate computed from one data point: w_new = w_old − η∇E(w, x_i, y_i). This noisy estimate approximates the full-data average (1/|X|)Σ∇E(w, x, y) [3_Core_NCC_PERC.pdf, p. 59].\n\nBecause each update uses a single randomly chosen point, SGD works online and is cheap in computation and memory, which makes it suitable for large data sets [4_LogisticRegression.pdf, p. 110]. [3_Core_NCC_PERC.pdf, p. 59]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 59,
+        "score": 0.7951055
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 110,
+        "score": 0.79256845
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 111,
+        "score": 0.7806344
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 99,
+        "score": 0.7752937
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 113,
+        "score": 0.75095314
+      }
+    ]
+  },
+  {
+    "id": "q34",
+    "type": "needle",
+    "question": "In the backpropagation example, which loss and which hidden activation function are used?",
+    "answerable": true,
+    "answer": "The loss is the squared loss, J = 1/2 Σ_k (ŷ_k − y_k)², and the hidden activation function is the logistic function, h(z) = 1 / (1 + e^(−z)) [5_MLP.pdf, p. 36].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 37,
+        "score": 0.78750503
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 36,
+        "score": 0.7758683
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 35,
+        "score": 0.75428313
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 30,
+        "score": 0.7539265
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 17,
+        "score": 0.74624383
+      }
+    ]
+  },
+  {
+    "id": "q35",
+    "type": "multi_source",
+    "question": "What problems does the perceptron algorithm have, and how can its limitation on non-separable data be overcome?",
+    "answerable": true,
+    "answer": "Problems with the perceptron algorithm, per the slides:\n\n- Each update might lead to new misclassifications. [3_Core_NCC_PERC.pdf, p. 85]\n- Many solutions might exist, so it is unclear which one is correct. [3_Core_NCC_PERC.pdf, p. 85]\n- Convergence might be slow. [3_Core_NCC_PERC.pdf, p. 85]\n- It only solves linearly separable problems, and if no solution exists the algorithm will not converge. [3_Core_NCC_PERC.pdf, p. 85]\n\nOvercoming the limitation on non-separable data:\n\n- Perceptrons cannot separate linearly non-separable data. The proposed solutions are non-linear features and multiple perceptrons. [5_MLP.pdf, p. 11]\n- If the non-linearity can be modelled, new features x̃ can be created that are linearly separable. But this requires knowing the non-linearity. [5_MLP.pdf, p. 12]\n- Multi Layer Perceptrons can approximate any function, and error backpropagation is used to train them. [5_MLP.pdf, p. 52]\n\nFor the general perceptron issues, the slides note that solutions were proposed by Freund and Schapire [1998], but the sources do not describe those solutions. [3_Core_NCC_PERC.pdf, p. 85]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 85,
+        "score": 0.8380616
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 11,
+        "score": 0.82906806
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 12,
+        "score": 0.79529804
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 52,
+        "score": 0.77331454
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 8,
+        "score": 0.7504262
+      }
+    ]
+  },
+  {
+    "id": "q36",
+    "type": "hard_negative",
+    "question": "What is the kernel trick in support vector machines?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 3,
+        "score": 0.7034136
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 113,
+        "score": 0.6910814
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 72,
+        "score": 0.6842648
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 58,
+        "score": 0.67604506
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 77,
+        "score": 0.67407304
+      }
+    ]
+  },
+  {
+    "id": "q37",
+    "type": "hard_negative",
+    "question": "How does L1 regularization in the lasso produce sparse weights?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 59,
+        "score": 0.70281804
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 8,
+        "score": 0.70134914
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 112,
+        "score": 0.698739
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 67,
+        "score": 0.6929754
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 41,
+        "score": 0.6890273
+      }
+    ]
+  },
+  {
+    "id": "q38",
+    "type": "hard_negative",
+    "question": "What learning rate was used in the handwritten digit recognition experiment?",
+    "answerable": false,
+    "answer": "I couldn't find this in the provided sources.",
+    "refused": true,
+    "has_citation": false,
+    "citation_correct": false,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 77,
+        "score": 0.7385388
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 76,
+        "score": 0.73816204
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 83,
+        "score": 0.73206496
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 84,
+        "score": 0.72467434
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 58,
+        "score": 0.69466454
+      }
+    ]
+  },
+  {
+    "id": "q39",
+    "type": "visual",
+    "question": "What do the class centroids of the USPS handwritten digit data set look like?",
+    "answerable": true,
+    "answer": "The class centroids for the USPS handwritten digit data set are shown as a grid of ten small blurry 16×16-style heatmap images, one per digit, arranged in two rows of five. Each image has a dark blue background with red and yellow strokes marking the centroid shape. Digit 1 appears as a single vertical stroke, and digit 0 appears as a ring-shaped blob. [3_Core_NCC_PERC.pdf, p. 44]",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 44,
+        "score": 0.8828876
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 41,
+        "score": 0.7572742
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 36,
+        "score": 0.7474549
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 35,
+        "score": 0.7379521
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 43,
+        "score": 0.7357273
+      }
+    ]
+  },
+  {
+    "id": "q40",
+    "type": "visual",
+    "question": "Which polynomial degrees are compared when fitting noisy samples of the sine function, and what happens with the highest degree?",
+    "answerable": true,
+    "answer": "The slide compares polynomial degrees M = 1, M = 3, and M = 9.\n\n- M = 1 gives a straight line that fits poorly, underfitting the data [3_Core_NCC_PERC.pdf, p. 11].\n- M = 3 follows the sine curve closely through the noisy samples, a good fit [3_Core_NCC_PERC.pdf, p. 11].\n- M = 9 passes through all the noisy samples but shows large oscillations, especially near the edges, which indicates overfitting [3_Core_NCC_PERC.pdf, p. 11].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 11,
+        "score": 0.75593317
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 8,
+        "score": 0.682608
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 14,
+        "score": 0.64587796
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 15,
+        "score": 0.63866955
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 59,
+        "score": 0.6352257
+      }
+    ]
+  },
+  {
+    "id": "q41",
+    "type": "visual",
+    "question": "What did the original Rosenblatt perceptron hardware look like?",
+    "answerable": true,
+    "answer": "The sources describe three historical photographs of the hardware. One shows a large device with a dense grid of wiring, plus a white circular component and a white \"C\"-shaped label. Another shows a tall panel covered with a tangle of loose wires running across its front. The third shows a large panel of knobs and switches arranged in rows [3_Core_NCC_PERC.pdf, p. 63].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 63,
+        "score": 0.83124703
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 61,
+        "score": 0.8158152
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 62,
+        "score": 0.7306802
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 98,
+        "score": 0.70857656
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 7,
+        "score": 0.67152774
+      }
+    ]
+  },
+  {
+    "id": "q42",
+    "type": "visual",
+    "question": "How is the target function defined when the network should recognize only the digit 8, and what is the input dimension?",
+    "answerable": true,
+    "answer": "The target function is piecewise: f(x) = +1 if y = 8, and f(x) = −1 if y ∈ {0, 1, …, 7, 9} [3_Core_NCC_PERC.pdf, p. 76].\n\nThe input dimension is 256: each digit is a 16×16 pixel image, giving x ∈ ℝ^256 with one input node per pixel [3_Core_NCC_PERC.pdf, p. 76].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 76,
+        "score": 0.8006655
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 25,
+        "score": 0.6877117
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 54,
+        "score": 0.6840817
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 66,
+        "score": 0.67602074
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 60,
+        "score": 0.67423576
+      }
+    ]
+  },
+  {
+    "id": "q43",
+    "type": "visual",
+    "question": "What is the output rule of the perceptron for the two classes drawn as circles and triangles?",
+    "answerable": true,
+    "answer": "The perceptron outputs a value greater than 0 when x belongs to the circle class (o), and less than 0 when x belongs to the triangle class (Δ) [5_MLP.pdf, p. 10].\n\nThe boundary between the two classes is w^T x = 0 [3_Core_NCC_PERC.pdf, p. 75].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "5_MLP.pdf",
+        "page": 16,
+        "score": 0.755857
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 10,
+        "score": 0.7404182
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 75,
+        "score": 0.7372273
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 83,
+        "score": 0.735458
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 20,
+        "score": 0.7331455
+      }
+    ]
+  },
+  {
+    "id": "q44",
+    "type": "visual",
+    "question": "How does the convexity slide illustrate a set that is not convex?",
+    "answerable": true,
+    "answer": "The slide shows a light green blob with a notch cut into it. Two points, x and y, sit on opposite sides of the notch, and a red segment joins them. That segment passes outside the shape through the notch, so the set is labeled \"Not a convex set\" [4_LogisticRegression.pdf, p. 69]. This illustrates the non-convex condition tx + (1 − t)y ∉ C, meaning the line segment between two points in the set leaves the set [4_LogisticRegression.pdf, p. 69].",
+    "refused": false,
+    "has_citation": true,
+    "citation_correct": true,
+    "sources": [
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 69,
+        "score": 0.7520582
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 68,
+        "score": 0.6722882
+      },
+      {
+        "filename": "3_Core_NCC_PERC.pdf",
+        "page": 72,
+        "score": 0.64739835
+      },
+      {
+        "filename": "5_MLP.pdf",
+        "page": 12,
+        "score": 0.64718246
+      },
+      {
+        "filename": "4_LogisticRegression.pdf",
+        "page": 75,
+        "score": 0.64591354
+      }
+    ]
+  }
+]
