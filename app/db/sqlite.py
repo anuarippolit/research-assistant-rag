@@ -1,5 +1,6 @@
 from pathlib import Path
 import sqlite3
+from datetime import datetime, timezone
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 DB_PATH = BASE_DIR / "data" / "source.db"
@@ -16,6 +17,14 @@ def init_db() -> None:
                 status TEXT,
                 error TEXT,
                 created_at TEXT
+            )
+        """)
+
+        connection.execute("""
+            CREATE TABLE IF NOT EXISTS summaries (
+                source_id TEXT PRIMARY KEY,
+                text TEXT NOT NULL,
+                created_at TEXT NOT NULL
             )
         """)
 
@@ -51,7 +60,19 @@ def get_source(source_id: str) -> dict | None:
 
 def delete_source(source_id: str) -> bool:
     with sqlite3.connect(DB_PATH) as connection:
-        cursor = connection.execute("DELETE FROM sources WHERE id = ?", (source_id,))
-        return cursor.rowcount > 0
+        source_cursor = connection.execute("DELETE FROM sources WHERE id = ?", (source_id,))
+        connection.execute("DELETE FROM summaries WHERE source_id = ?", (source_id,))  # no cached summary is normal
+        return source_cursor.rowcount > 0  # the answer depends only on the source row
 
-    
+def save_summary(source_id: str, text: str) -> None:
+    created_at = datetime.now(timezone.utc).isoformat()
+    with sqlite3.connect(DB_PATH) as connection:
+        connection.execute("""
+            INSERT OR REPLACE INTO summaries (source_id, text, created_at)
+            VALUES(?, ?, ?)
+        """, (source_id, text, created_at))
+
+def get_summary(source_id: str) -> str | None:
+    with sqlite3.connect(DB_PATH) as connection:
+        row = connection.execute("SELECT text FROM summaries WHERE source_id = ?", (source_id,)).fetchone()
+        return row[0] if row else None  # row is a tuple like ("summary text",), or None if nothing cached

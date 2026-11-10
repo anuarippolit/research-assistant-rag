@@ -63,3 +63,23 @@ def search_chunks(query_vector: list[float], k: int=5, source_ids: list[str] | N
     results = get_client().query_points(collection_name=COLLECTION, query=query_vector, limit=k, query_filter=q_filter, with_payload=True)
     return [{**p.payload, "score": p.score} for p in results.points]
 
+
+def get_source_chunks(source_id: str) -> list[dict]:
+    # scroll in pages of 100 (offset = bookmark to the next page) -> filter by source_id -> collect payloads -> sort by chunk_index
+    client = get_client()
+    results, offset = [], None
+
+    while True:
+        points, offset = client.scroll(
+            collection_name=COLLECTION,
+            scroll_filter=Filter(must=[FieldCondition(key="source_id", match=MatchValue(value=source_id))]),
+            limit=100,
+            offset=offset,
+            with_payload=True,
+            with_vectors=False,
+        )
+        results.extend(p.payload for p in points)
+        if offset is None:
+            break
+
+    return sorted(results, key=lambda n: n["chunk_index"])

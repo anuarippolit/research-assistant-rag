@@ -4,7 +4,7 @@ from pathlib import Path
 import pymupdf
 
 from app.core.llm import ask_claude
-from app.core.prompts import VISION_SYSTEM_PROMPT, build_vision_prompt
+from app.core.prompts import VISION_SYSTEM_PROMPT
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +20,8 @@ def render_page(pdf_path: Path, page_number: int, dpi: int = 120) -> bytes:
 
 def describe_page(image_png: bytes, page_text: str) -> str:
     # Ask the vision model for a searchable description of one slide (formulas as text, diagrams in words).
-    return ask_claude(VISION_SYSTEM_PROMPT, build_vision_prompt(page_text), max_tokens=1024, image_png=image_png)
+    user = f"<extracted_text>\n{page_text}\n</extracted_text>\n\nDescribe this slide."
+    return ask_claude(VISION_SYSTEM_PROMPT, user, max_tokens=1024, image_png=image_png)
 
 
 def describe_pages(pdf_path: Path, pages: list[dict]) -> list[dict]:
