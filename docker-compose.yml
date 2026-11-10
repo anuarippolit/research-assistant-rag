@@ -1,0 +1,19 @@
+services:
+  qdrant:
+    image: qdrant/qdrant
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file: .env                           # ANTHROPIC_API_KEY, CHAT_MODEL
+    environment:
+      QDRANT_URL: http://qdrant:6333        
+    volumes:
+      - ./data:/code/data
+      - ./hf_cache:/root/.cache/huggingface  
+    depends_on:
+      - qdrant
+    restart: on-failure                     
