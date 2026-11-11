@@ -115,7 +115,7 @@ app/
   core/              parsing, chunking, vision, embeddings, ingestion, prompts, llm, chat, summarize, extract
   db/                sqlite.py (sources, summaries), vector_store.py (Qdrant)
 eval/                questions.json, run_retrieval.py, run_answers.py
-scripts/             compare_search.py (numpy brute force vs Qdrant, a learning tool)
+scripts/             numpy_search.py (brute-force numpy search) and compare_search.py (numpy vs Qdrant), learning tools
 ```
 
 Run the eval (needs the three lectures ingested; `run_answers` calls Claude and costs money, always pass a new label so earlier results are not overwritten):

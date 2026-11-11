@@ -1,7 +1,7 @@
 import math
 
 from app.core.embeddings import embed_query
-from app.core.retrieval import search_numpy
+from scripts.numpy_search import search_numpy
 from app.db.vector_store import search_chunks
 
 # get the address of the chunk
