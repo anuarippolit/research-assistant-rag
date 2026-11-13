@@ -71,7 +71,7 @@ curl -X POST http://localhost:8000/extract -H "Content-Type: application/json" \
 
 Retrieval and answers are evaluated separately (`eval/`), on questions written from the three lecture PDFs (165 chunks): answerable questions with expected page ranges, and unanswerable ones that must be refused.
 
-| Version | Questions | recall@1 / @3 / @5 | Distinct slides in top-5 | False refusals | Wrong citations |
+| Version | Answerable questions | recall@1 / @3 / @5 | Distinct slides in top-5 | False refusals | Wrong citations |
 |---|---|---|---|---|---|
 | Baseline | 30 | 0.80 / 0.90 / 0.90 | 3.40 | 4 / 30 | 0 / 26 |
 | + build-step removal | 30 | 0.80 / 0.87 / 0.87 | 4.83 | 3 / 30 | 1 / 27 |
@@ -81,7 +81,7 @@ Retrieval and answers are evaluated separately (`eval/`), on questions written f
 Correct refusals on unanswerable questions: 8 / 8 in every version.
 
 Notes on reading the table:
-- The question set grew between rows (30 -> 36), so rows are not perfectly comparable. Two eval labels were wrong and were fixed by content, not to improve the score (one page range was too narrow, one included build steps).
+- The answerable question set grew between rows (30 -> 36; plus 8 unanswerable ones), so rows are not perfectly comparable. Two eval labels were wrong and were fixed by content, not to improve the score (one page range was too narrow, one included build steps).
 - Build-step removal lowered recall@5 slightly but raised the number of distinct slides in the top 5 (3.40 -> 4.81), which gives the model more evidence to answer from.
 - A "false refusal" is usually a retrieval miss, not a model problem. The two remaining ones (NCC as a linear classifier; a one-line fact about the year of backpropagation) are known misses.
 
